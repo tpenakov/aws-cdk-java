@@ -21,3 +21,31 @@ docker run -i --rm \
 	triphon/aws-cdk-java:mvn-amazoncorretto11-node12 \
 	$PUT_COMMAND_HERE
 ```
+
+Example how to init JAVA project:
+```
+docker run -i --rm \
+	--volume=$(pwd):/work \
+	-e "AWS_ACCESS_KEY_ID=<YOUR_KEY>" \
+	-e "AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_KEY>" \
+	-e "AWS_DEFAULT_REGION=<YOUR_REGION>" \
+	triphon/aws-cdk-java:mvn-amazoncorretto11-node12 \
+	cdk init app --language java
+```
+
+The generated resources are with root ownership and need to adjust the permissions if you want to edit them:
+
+```
+docker run -i --rm \
+	--volume=$(pwd):/work \
+	-e "AWS_ACCESS_KEY_ID=<YOUR_KEY>" \
+	-e "AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_KEY>" \
+	-e "AWS_DEFAULT_REGION=<YOUR_REGION>" \
+	triphon/aws-cdk-java:mvn-amazoncorretto11-node12 \
+	chmod -R a+rw .
+```
+
+
+
+
+
