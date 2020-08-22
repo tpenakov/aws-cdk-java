@@ -1,0 +1,21 @@
+####
+# This Dockerfile is used in order to build a container that runs the AWS CDK
+#
+# Before building the docker image run:
+#
+# Then, build the image with:
+#
+# docker build -f Dockerfile.aws-cdk-java -t triphon/aws-cdk-java:mvn-amazoncorretto11-node12 .
+#
+# Then run the container using:
+#
+# docker run -i --rm triphon/aws-cdk-java:mvn-amazoncorretto11-node12 $PUT_COMMAND_HERE
+#
+###
+FROM maven:3.6.3-amazoncorretto-11
+
+RUN curl -sL https://rpm.nodesource.com/setup_lts.x | bash - \
+	&& yum install -y gcc-c++ make nodejs \
+	&& yum clean all
+
+
