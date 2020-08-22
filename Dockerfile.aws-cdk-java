@@ -14,8 +14,15 @@
 ###
 FROM maven:3.6.3-amazoncorretto-11
 
+RUN echo 0001
+
 RUN curl -sL https://rpm.nodesource.com/setup_lts.x | bash - \
-	&& yum install -y gcc-c++ make nodejs \
-	&& yum clean all
+	&& yum install -y nodejs git \
+	&& yum clean all \
+	&& rm -rf /var/cache/yum \
+	&& npm install -g aws-cdk
+	
+WORKDIR /work/
+
 
 
