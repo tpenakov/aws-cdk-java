@@ -20,7 +20,7 @@ docker run -i --rm \
 	-e "AWS_ACCESS_KEY_ID=<YOUR_KEY>" \
 	-e "AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_KEY>" \
 	-e "AWS_DEFAULT_REGION=<YOUR_REGION>" \
-	triphon/aws-cdk-java:mvn-amazoncorretto11-node12 \
+	triphon/aws-cdk-java:latest \
 	$PUT_COMMAND_HERE
 ```
 
@@ -31,7 +31,7 @@ docker run -i --rm \
 	-e "AWS_ACCESS_KEY_ID=<YOUR_KEY>" \
 	-e "AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_KEY>" \
 	-e "AWS_DEFAULT_REGION=<YOUR_REGION>" \
-	triphon/aws-cdk-java:mvn-amazoncorretto11-node12 \
+	triphon/aws-cdk-java:latest \
 	cdk init app --language java
 ```
 
@@ -40,7 +40,7 @@ The generated resources are with root ownership and need to adjust the permissio
 ```
 docker run -i --rm \
 	--volume=$(pwd):/work \
-	triphon/aws-cdk-java:mvn-amazoncorretto11-node12 \
+	triphon/aws-cdk-java:latest \
 	chmod -R a+rw .
 ```
 
