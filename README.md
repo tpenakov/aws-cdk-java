@@ -4,6 +4,7 @@
 
 ### Docker image info
 
+- AWS CDK 1.6.0
 - Nodejs 12
 - npm 6.14
 - MAVEN 3.6
